@@ -2,7 +2,6 @@
   "name": "wasm-vcpu-test-root",
   "version": "0.1.0",
   "scripts": {
-    "build": "node scripts/detect-cpus.js BUILD_START || true && cd assembly && npm install --no-audit --no-fund && npm run asbuild && cp assembly/build/compute.wasm src/compute.wasm && node scripts/detect-cpus.js BUILD_END || true"
+    "build": "node scripts/detect-cpus.js BUILD_START || true && cd assembly && npm install --no-audit --no-fund && npm run asbuild && cp build/compute.wasm ../src/compute.wasm && node ../scripts/detect-cpus.js BUILD_END || true"
   }
 }
-

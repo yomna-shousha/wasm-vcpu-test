@@ -1,0 +1,11 @@
+# node
+node_modules/
+**/node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# build artifact
+src/compute.wasm
+assembly/build/
