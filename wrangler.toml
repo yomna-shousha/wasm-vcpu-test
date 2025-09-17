@@ -1,0 +1,6 @@
+name = "wasm-vcpu-test"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+# workers_dev = true   # uncomment if you want a workers.dev subdomain
+type = "javascript"
+

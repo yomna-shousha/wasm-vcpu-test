@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "release": {
+      "outFile": "build/compute.wasm",
+      "optimize": true,
+      "noAssert": true,
+      "runtime": "stub"
+    }
+  }
+}
+

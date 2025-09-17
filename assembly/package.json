@@ -1,0 +1,10 @@
+{
+  "name": "wasm-cpu-test-assembly",
+  "version": "0.1.0",
+  "scripts": {
+    "asbuild": "asc assembly/compute.ts -b build/compute.wasm --optimize"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.22.0"
+  }
+}
