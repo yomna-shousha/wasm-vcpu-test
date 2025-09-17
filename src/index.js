@@ -3,11 +3,21 @@ import wasmModule from './compute.wasm';
 let exportsPromise = null;
 async function loadWasm() {
   if (exportsPromise) return exportsPromise;
-  // wasmModule is bundled by wrangler as a WebAssembly.Module
+  
   exportsPromise = (async () => {
-    const { instance } = await WebAssembly.instantiate(wasmModule, {});
+    // Provide minimal imports for AssemblyScript runtime
+    const imports = {
+      env: {
+        abort: (msg, file, line, column) => {
+          throw new Error(`AssemblyScript abort: ${msg} at ${file}:${line}:${column}`);
+        }
+      }
+    };
+    
+    const { instance } = await WebAssembly.instantiate(wasmModule, imports);
     return instance.exports;
   })();
+  
   return exportsPromise;
 }
 
@@ -39,4 +49,3 @@ async function handle(request) {
     return new Response(JSON.stringify({ ok: false, error: String(err) }), { status: 500 });
   }
 }
-
